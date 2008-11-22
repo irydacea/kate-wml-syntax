@@ -1,0 +1,36 @@
+Changelog (0.35 and later):
+***************************
+* 0.40-svn
+    - 2008-08-20 <shadowm2006@gmail.com>:
+        * Added highlighting for special WML vars (turn_number, x1, etc.)
+        * Added support for metacomments ("pragmas") used by ESR's expand-terrain-macros.py
+            and trackplacer scripts.
+        * Validated against language.dtd.
+* 0.37
+    - 2008-03-29 <shadowm2006@gmail.com>:
+        * WML preprocessor directive (define, if) blocks can be collapsed/expanded
+        * attribute_name = "string" WML constructs (note the space surrounding '=') are recognized too
+            (designed considering the mainline about.cfg structure case
+        * Changed various context names and styles
+    - 2008-03-21 <shadowm2006@gmail.com>:
+        * WML nodes and multiline preprocessing macro/include blocks can be collapsed/expanded
+        * WML nodes that are opened and closed in a single line are properly highlighted now
+* 0.36
+    - 2008-03-05 <shadowm2006@gmail.com>:
+        * Added wmlscope to list of utility control commands
+* 0.35
+    - 2008-02-23 <shadowm2006@gmail.com>:
+        * Made it possible to comment/uncomment line(s) using the default
+            CTRL-D / CTRL-SHIFT-D shortcuts
+    - 2008-01-27 <shadowm2006@gmail.com>:
+        * Added the *.pbl file name pattern
+        * Made the standard alerts (i.e. TODO, HACK, FIXME,...) be highlighted too
+        * Made the key comments for Wesnoth's mainline maintenance scripts be highlighted (at the moment
+            they are only used for wmllint and wmlindent)
+    - 2008-01-?? <shadowm2006@gmail.com>:
+        * Made #textdomain another preprocessor directive, as is handled by the game at /src/serialization/preprocessor.cpp
+            line 634 and around
+    - 2007-11-?? <shadowm2006@gmail.com>:
+        * Minor improvements?
+    - 2007-11-?? <shadowm2006@gmail.com>:
+        * Made the new #ifndef directive be recognized (implemented on Wesnoth 1.3.11 and later)

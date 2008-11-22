@@ -1,0 +1,27 @@
+WESNOTH MARKUP LANGUAGE HIGHLIGHTING FOR KATE
+---------------------------------------------
+
+This is a simple, yet functional, WML highlighting schema intended for use with
+Kate, KDE's Advanced Text Editor. Since the editor is actually an embeddable KDE
+component ready for use by other KDE applications, this schema will also work
+with the read-only KatePart in Konqueror, with KDevelop, KWrite and possibly
+others.
+
+It is reported to work on KDE 4.1, but its testing and development has been done
+with KDE 3.5.
+
+To install, just copy the file named 'wml.xml' into the following path (create
+directories as necessary):
+
+<KDE dir>/share/apps/katepart/syntax
+
+<KDE dir> stands for the path to which KDE has been installed (i.e. /opt/kde3 in
+SUSE Linux, or /usr in other distributions), *OR* the user's preferences
+directory in their home (i.e. /home/andy/.kde). You can install wml.xml to
+either locations; the one you choose determines whether other users in your
+workstation will be able to use the WML schema as well.
+
+It should work out of the box when opening standard WML (*.cfg, *.pbl) files. If
+it does not, there's one Kate-mainline highlighter known to conflict, and it is
+located under Scripts->Quake Script (*.cfg). You may need to change its priority
+then.

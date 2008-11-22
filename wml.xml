@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE language SYSTEM "/usr/share/apps/katepart/syntax/language.dtd" -->
+<!DOCTYPE language SYSTEM "language.dtd"
+[
+	<!ENTITY wml_special_var "\$([xy][12]|((second_)?(unit|weapon))|(side|turn)_number)">
+	<!ENTITY image_path_func "~(RC|TC|FL|GS|CROP)">
+]>
+
+<language
+	name="Wesnoth Markup Language"
+	section="Markup"
+	extensions="*.cfg;*.pbl;*.CFG;*.PBL"
+	version="0.40-svn"
+	kateversion="2.5.5"
+	casesensitive="true"
+	author="Zachary Palmer (zep01@bahj.com), Ignacio R. Morelle (shadowm2006@gmail.com)"
+	license="GPL"
+>
+	<highlighting>
+		<list name="alerts_wml_utils">
+			<item> wmllint   </item>
+			<item> wmlindent </item>
+			<item> wmlscope  </item>
+			<item> trackplacer </item>
+		</list>
+		<list name="preprocessor_directive_statements">
+			<item> #textdomain </item>
+			<item> #else       </item>
+			<item> #undef      </item>
+			<!--
+			FIXME: for some reason, this <item> is not well
+			       recognized (the dash?); we'll use a explicit
+			       StringDetect below for the time being...
+			<item> #meta-macro </item>
+			-->
+		</list>
+		<list name="preprocessor_block_begin_statements">
+			<item> #define </item>
+			<item> #ifdef  </item>
+			<item> #ifndef </item>
+		</list>
+		<list name="preprocessor_block_end_statements">
+			<item> #enddef </item>
+			<item> #endif </item>
+		</list>
+		<contexts>
+			<!-- Main contexts -->
+			<context attribute="Normal Text" name="text" lineEndContext="#stay">
+				<RegExpr String="(_ *)?&quot;" attribute="String" context="string" />
+
+				<keyword String="preprocessor_directive_statements" attribute="Preprocessor" context="preprocessor" />
+				<StringDetect String="#meta-macro" attribute="Preprocessor" context="preprocessor" />
+				<keyword String="preprocessor_block_begin_statements" attribute="Preprocessor" context="preprocessor" beginRegion="wmlpp_block" />
+				<keyword String="preprocessor_block_end_statements" attribute="Preprocessor" context="preprocessor" endRegion="wmlpp_block" />
+
+				<DetectChar char="#" attribute="Comment" context="comment" />
+
+				<DetectChar char="{" attribute="Macro/Include" context="macro" beginRegion="macro_block" />
+
+				<!--<DetectChar char="[" attribute="WML Node" context="section" firstNonSpace="true" />-->
+				<RegExpr String="\[(?!/)" attribute="WML Node" context="section" beginRegion="wml_node" />
+				<RegExpr String="\[/" attribute="WML Node" context="section" endRegion="wml_node" />
+
+				<RegExpr String="(\w|,| )+=" attribute="WML Attribute" context="value"
+						 lookAhead="true" />
+
+<!-- 				<DetectChar char="~" attribute="Image Path Function" context="imagePath" /> -->
+
+				<IncludeRules context="variableSubstitutionRule" />
+			</context>
+
+			<context attribute="Image Path Function" lineEndContext="#pop" name="imagePath">
+				<DetectChar char="&quot;" attribute="Image Path Function" context="#pop#pop" />
+			</context>
+<!--			<context attribute="Image Path Function" lineEndContext="#pop" name="imagePath2">
+				<DetectChar char=")" attribute="Image Path Function" context="#pop#pop" />
+			</context>-->
+			
+			<context attribute="String" lineEndContext="#stay" name="string">
+				<DetectChar char="&quot;" attribute="String" context="#pop" />
+				<DetectChar char="{" attribute="Macro/Include" context="macro" />
+<!-- 				<DetectChar char="~" attribute="Image Path Function" context="imagePath" /> -->
+				<IncludeRules context="variableSubstitutionRule" />
+			</context>
+
+			<context attribute="Comment" lineEndContext="#pop" name="comment" >
+				<keyword attribute="Maintenance script statement" context="#stay" String="alerts_wml_utils" />
+				<IncludeRules context="##Alerts" />
+			</context>
+			
+			<context attribute="Macro/Include" lineEndContext="#stay" name="macro">
+                <DetectChar char="{" attribute="Macro/Include" context="macro" beginRegion="macro_block" />
+				<RegExpr String="(_ *)?&quot;" attribute="Macro String" context="macroString" />
+				<DetectChar char="(" attribute="Macro String" context="macroString2" />
+                <DetectChar char="}" attribute="Macro/Include" context="#pop" endRegion="macro_block" />
+				<IncludeRules context="variableSubstitutionRule" />
+			</context>
+			
+			<context attribute="Macro String" lineEndContext="#stay" name="macroString">
+<!-- 				<DetectChar char="~" attribute="Image Path Function" context="imagePath2" /> -->
+				<DetectChar char="&quot;" attribute="Macro String" context="#pop" />
+                <DetectChar char="{" attribute="Macro/Include" context="macro" beginRegion="macro_block" />
+				<IncludeRules context="variableSubstitutionRule" />
+			</context>
+			
+			<context attribute="Macro String" lineEndContext="#stay" name="macroString2">
+				<!--<DetectChar char="~" attribute="Image Path Function" context="imagePath2" />-->
+				<DetectChar char=")" attribute="Macro String" context="#pop" />
+                <DetectChar char="{" attribute="Macro/Include" context="macro" beginRegion="macro_block" />
+				<IncludeRules context="text" />
+			</context>
+			
+			<context attribute="WML Node" lineEndContext="error" name="section" >
+				<DetectChar char="]" attribute="WML Node" context="#pop" />
+			</context>
+			
+			<context attribute="WML Attribute" lineEndContext="#pop" name="value">
+				<DetectChar char="=" attribute="Normal Text" context="#pop" />
+			</context>
+			
+			<context attribute="Preprocessor" lineEndContext="#pop" name="preprocessor">
+			</context>
+			
+			<context attribute="Error" lineEndContext="#pop" name="error">
+			</context>
+			
+			<context attribute="Variable Substitution" lineEndContext="#pop" name="variableSubstitution">
+				<DetectChar char="|" attribute="Variable Substitution" context="#pop" />
+				<DetectChar char="$" attribute="Variable Substitution" context="variableSubstitution" />
+				<DetectChar char="[" attribute="Variable Subscript" context="variableSubscript" />
+				<RegExpr String="[^A-Za-z0-9_\.]" attribute="Variable Substitution" context="#pop"
+						 lookAhead="true" />
+			</context>
+			
+			<context attribute="Variable Subscript" lineEndContext="error" name="variableSubscript">
+				<DetectChar char="]" attribute="Variable Subscript" context="#pop" />
+			</context>
+			
+			<!-- Include contexts -->
+			<context attribute="Variable Substitution" lineEndContext="#pop" name="variableSubstitutionRule">
+				<RegExpr String="&wml_special_var;"
+				         attribute="Special Variable" context="variableSpecial" />
+				<DetectChar char="$" attribute="Variable Substitution" context="variableSubstitution" />
+			</context>
+
+			<context attribute="Special Variable" lineEndContext="#pop" name="variableSpecial">
+				<RegExpr String="&wml_special_var;"
+				         attribute="Special Variable" context="variableSpecial" />
+				<DetectChar char="|" attribute="Special Variable" context="#pop" />
+				<DetectChar char="$" attribute="Variable Substitution" context="variableSubstitution" />
+				<DetectChar char="[" attribute="Variable Subscript" context="variableSubscript" />
+				<RegExpr String="[^A-Za-z0-9_\.]" attribute="Special Variable" context="#pop" lookAhead="true" />
+			</context>
+			
+		</contexts>
+		<itemDatas>
+			<itemData name="Normal Text"                  defStyleNum="dsNormal"   />
+			<itemData name="Maintenance script statement" defStyleNum="dsAlert"    />
+			<itemData name="String"                       defStyleNum="dsString"   />
+			<itemData name="Simple String"                defStyleNum="dsString"   />
+			<itemData name="Comment"                      defStyleNum="dsComment"  />
+			<itemData name="Macro/Include"                defStyleNum="dsFloat"    />
+			<itemData name="WML Node"                     defStyleNum="dsFunction" />
+			<itemData name="WML Attribute"                defStyleNum="dsOthers"   />
+			<itemData name="Preprocessor"                 defStyleNum="dsKeyword"  />
+			<itemData name="Error"                        defStyleNum="dsError"    />
+			<itemData name="Macro String"                 defStyleNum="dsChar"     />
+			<itemData name="Variable Substitution"        defStyleNum="dsDecVal"   />
+			<itemData name="Variable Subscript"           defStyleNum="dsBaseN"    />
+			<itemData name="Special Variable"             defStyleNum="dsDataType" color="#00B0B0" selColor="#00B0B0" bold="0" italic="0" />
+			<itemData name="Image Path Function"          defStyleNum="dsFunction" bold="1" />
+		</itemDatas>
+	</highlighting>
+	<general>
+		<comments>
+			<comment name="singleLine" start="#" />
+		</comments>
+		<keywords casesensitive="1" />
+	</general>
+</language>
+
+<!-- kate: indent-mode normal; encoding utf-8; space-indent off; -->

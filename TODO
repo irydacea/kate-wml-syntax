@@ -1,0 +1,12 @@
+TODO LIST:
+**********
+* The WML metacomments (wmllint: et al) are currently only recognized
+    if there's a space in between the directive sign (#). Also need to check
+    if the tools actually recognize the metacomment without the space-sandwich,
+    and report bugs as necessary.
+* #enddef is not being recognized at the end of a one-liner macro (i.e.
+    "foobar"#enddef has the directive hilighted as a regular comment.
+* Image-path functions (~RC and family) would be nice to have hilighted.
+* A companion formula AI syntax hilighter would be nice to have.
+* A companion WML map syntax highlighter would be nice to have.
+* Exotic WML styles still don't hilight properly
