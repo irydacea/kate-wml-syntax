@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <!DOCTYPE language SYSTEM "/usr/share/apps/katepart/syntax/language.dtd" -->
 <!DOCTYPE language SYSTEM "language.dtd"
 [
 	<!ENTITY wml_special_var "\$([xy][12]|((second_)?(unit|weapon))|(side|turn)_number)">
 	<!ENTITY image_path_func "~(RC|TC|FL|GS|CROP)">
 ]>
+<!--!DOCTYPE language SYSTEM "/usr/share/apps/katepart/syntax/language.dtd"-->
 
 <language
 	name="Wesnoth Markup Language"
@@ -13,7 +13,7 @@
 	version="0.40-svn"
 	kateversion="2.5.5"
 	casesensitive="true"
-	author="Zachary Palmer (zep01@bahj.com), Ignacio R. Morelle (shadowm2006@gmail.com)"
+	author="Ignacio R. Morelle (shadowm@wesnoth.org), Zachary Palmer (zep01@bahj.com)"
 	license="GPL"
 >
 	<highlighting>
