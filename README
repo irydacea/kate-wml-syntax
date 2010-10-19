@@ -1,3 +1,11 @@
+NOTE: the WML schema is now part of Kate. Current versions should include it by
+default. If your version doesn't, you can get the schema at
+
+  http://gitorious.org/kate/kate/blobs/master/part/syntax/data/wml.xml
+
+  -- shadowmaster
+
+
 WESNOTH MARKUP LANGUAGE HIGHLIGHTING FOR KATE
 ---------------------------------------------
 
