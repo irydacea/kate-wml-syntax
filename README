@@ -1,7 +1,10 @@
 NOTE: the WML schema is now part of Kate. Current versions should include it by
 default. If your version doesn't, you can get the schema at
 
-  http://gitorious.org/kate/kate/blobs/master/part/syntax/data/wml.xml
+  http://quickgit.kde.org/?p=kate.git&a=tree&f=part/syntax/data
+
+The files you need are wml.xml, and (if you are using Kate from KDE SC 4.4 or
+earlier) pango.xml.
 
   -- shadowmaster
 
@@ -15,8 +18,8 @@ component ready for use by other KDE applications, this schema will also work
 with the read-only KatePart in Konqueror, with KDevelop, KWrite and possibly
 others.
 
-It is reported to work on KDE 4.1, but its testing and development has been done
-with KDE 3.5.
+It is reported to work on different Kate versions including those from KDE SC 4.4,
+4.5 and even KDE 3.5 for the old-school.
 
 To install, just copy the file named 'wml.xml' into the following path (create
 directories as necessary):
