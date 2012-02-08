@@ -116,12 +116,12 @@
             </context>
 
             <context attribute="String" name="luastring" lineEndContext="#stay">
-                <RegExpr String="&gt;&gt;" attribute="String" context="#pop" endRegion="wml_lua" />
+                <Detect2Chars char="&gt;" char1="&gt;" attribute="String" context="#pop" endRegion="wml_lua" />
                 <IncludeRules context="##Lua" includeAttrib="true"/>
             </context>
             
             <context attribute="Macro String" name="luamacrostring" lineEndContext="#stay">
-                <RegExpr String="&gt;&gt;" attribute="Macro String" context="#pop" endRegion="wml_lua" />
+                <Detect2Chars char="&gt;" char1="&gt;" attribute="Macro String" context="#pop" endRegion="wml_lua" />
                 <IncludeRules context="##Lua" includeAttrib="true"/>
             </context>
             
