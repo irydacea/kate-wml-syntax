@@ -61,6 +61,7 @@
             <item> wmllint</item>
             <item> wmlindent</item>
             <item> wmlscope</item>
+            <item> wmlxgettext</item>
             <item> po</item>
         </list>
         <list name="preprocessor_directive_statements">
