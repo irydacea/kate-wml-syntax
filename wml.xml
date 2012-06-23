@@ -189,17 +189,17 @@
         <itemDatas>
             <itemData name="Normal WML Text" defStyleNum="dsNormal" />
             <itemData name="Normal Text" defStyleNum="dsString" /> <!--For Pango-->
-            <itemData name="Maintenance script statement" defStyleNum="dsAlert"/>
+            <itemData name="Maintenance script statement" defStyleNum="dsAlert" spellChecking="false"/>
             <itemData name="String" defStyleNum="dsString" />
             <itemData name="Comment" defStyleNum="dsComment" />
-            <itemData name="Macro/Include" defStyleNum="dsFunction" />
-            <itemData name="WML Node" defStyleNum="dsKeyword" />
-            <itemData name="WML Attribute" defStyleNum="dsDataType" />
-            <itemData name="Preprocessor" defStyleNum="dsOthers" />
-            <itemData name="Error" defStyleNum="dsError" />
+            <itemData name="Macro/Include" defStyleNum="dsFunction" spellChecking="false" />
+            <itemData name="WML Node" defStyleNum="dsKeyword" spellChecking="false" />
+            <itemData name="WML Attribute" defStyleNum="dsDataType" spellChecking="false" />
+            <itemData name="Preprocessor" defStyleNum="dsOthers" spellChecking="false" />
+            <itemData name="Error" defStyleNum="dsError" spellChecking="false" />
             <itemData name="Macro String" defStyleNum="dsChar" />
-            <itemData name="Variable Substitution" defStyleNum="dsDecVal" />
-            <itemData name="Variable Subscript" defStyleNum="dsBaseN" />
+            <itemData name="Variable Substitution" defStyleNum="dsDecVal" spellChecking="false" />
+            <itemData name="Variable Subscript" defStyleNum="dsBaseN" spellChecking="false" />
         </itemDatas>
     </highlighting>
     <general>
