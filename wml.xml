@@ -5,6 +5,15 @@
   Alternatively try the "normal" way: #kate@freenode, kwrite-devel@kde.org
   Changelog (0.35 and later):
   ***************************
+* 0.43
+  - 2012-06-23 <shadowm2006@gmail.com>
+    * Exempted most contexts from spellchecking, except for quoted and
+      translatable strings, comment lines, and the default context.
+  - 2012-04-14 <shadowm2006@gmail.com>
+    * Added wmlxgettext: metadirective.
+  - 2012-02-08 <shadowm2006@gmail.com>
+    * Use Detect2Chars instead of a trivial regular expression for
+      detecting the end of non-preprocessed (<< >>) blocks.
 * 0.42
   - 2011-11-15 <shadowm2006@gmail.com>:
     * Added preprocessor directives: #error, #warning
