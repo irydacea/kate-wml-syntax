@@ -1,15 +1,15 @@
 Wesnoth Markup Language Syntax Highlighting for Kate
 ====================================================
 
-`wml.xml` is a syntax highlighting schema for the **Kate[a]** text editor
+`wml.xml` is a syntax highlighting schema for the **[Kate][1]** text editor
 targeting the markup language used for configuration and scripting by the
-**Battle for Wesnoth[b]** game engine. More specifically, this schema works
-with any editor that makes use of the **KatePart[c]** editor component or
+**[Battle for Wesnoth][2]** game engine. More specifically, this schema works
+with any editor that makes use of the **[KatePart][3]** editor component or
 highlighting schema format.
 
-[a]: http://kate-editor.org/
-[b]: http://www.wesnoth.org/
-[c]: http://kate-editor.org/about-katepart/
+[1]: http://kate-editor.org/
+[2]: http://www.wesnoth.org/
+[3]: http://kate-editor.org/about-katepart/
 
 Contained in this directory is the development version of the schema. Changes
 are sent and included upstream in Kate once deemed suitable for general usage.
