@@ -7,9 +7,9 @@ targeting the markup language used for configuration and scripting by the
 with any editor that makes use of Kate's editor component (**KatePart[3]**) or
 highlighting schema format.
 
-[1] http://kate-editor.org/
-[2] http://www.wesnoth.org/
-[3] http://kate-editor.org/about-katepart/+
+[1]: http://kate-editor.org/
+[2]: http://www.wesnoth.org/
+[3]: http://kate-editor.org/about-katepart/
 
 Contained in this directory is the development version of the schema. Changes
 are sent and included upstream in Kate once deemed suitable for general usage.
