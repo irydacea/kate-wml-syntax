@@ -1,66 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "language.dtd">
 <!--
-  Thread for discussions: http://www.wesnoth.org/forum/viewtopic.php?f=21&t=13781
-  Alternatively try the "normal" way: #kate@freenode, kwrite-devel@kde.org
-  Changelog (0.35 and later):
-  ***************************
-* 0.43
-  - 2012-06-23 <shadowm2006@gmail.com>
-    * Exempted most contexts from spellchecking, except for quoted and
-      translatable strings, comment lines, and the default context.
-  - 2012-04-14 <shadowm2006@gmail.com>
-    * Added wmlxgettext: metadirective.
-  - 2012-02-08 <shadowm2006@gmail.com>
-    * Use Detect2Chars instead of a trivial regular expression for
-      detecting the end of non-preprocessed (<< >>) blocks.
-* 0.42
-  - 2011-11-15 <shadowm2006@gmail.com>:
-    * Added preprocessor directives: #error, #warning
-    * Added highlighting for the wmlxgettext annotation metadirective (po:)
-* 0.41
-  - 2011-04-15 <shadowm2006@gmail.com>:
-    * Added preprocessor directives: #if(n)have, #if(n)ver
-    * Revalidated against language.dtd
 
-* 0.40
-  - 2010-06-13 <devel@the-user.org>:
-    * Added lua-highlighting between << and >>.
-    * Added pango-highlighting between " and "
-    * Folding for macro-strings between paretheses
-    * Changed colors.
-    * This file is licensed under GPLv2+
+Wesnoth Markup Language syntax highlighting schema
 
-* 0.37
-  - 2008-03-29 <shadowm2006@gmail.com>:
-    * WML preprocessor directive (define, if) blocks can be collapsed/expanded
-    * attribute_name = "string" WML constructs (note the space surrounding '=') are recognized too
-      (designed considering the mainline about.cfg structure case
-    * Changed various context names and styles
+Repository:        https://github.com/shikadilord/kate-wml-syntax
+Discussion thread: https://forums.wesnoth.org/viewtopic.php?f=21&t=13781
 
-- 2008-03-21 <shadowm2006@gmail.com>:
-    * WML nodes and multiline preprocessing macro/include blocks can be collapsed/expanded
-    * WML nodes that are opened and closed in a single line are properly highlighted now
-  * 0.36
-  - 2008-03-05 <shadowm2006@gmail.com>:
-    * Added wmlscope to list of utility control commands
+Version history:
 
-  * 0.35
-  - 2008-02-23 <shadowm2006@gmail.com>:
-    * Made it possible to comment/uncomment line(s) using the default
-      CTRL-D / CTRL-SHIFT-D shortcuts
-  - 2008-01-27 <shadowm2006@gmail.com>:
-    * Added the *.pbl file name pattern
-    * Made the standard alerts (i.e. TODO, HACK, FIXME,...) be highlighted too
-    * Made the key comments for Wesnoth's mainline maintenance scripts be highlighted (at the moment
-      they are only used for wmllint and wmlindent)
-  - 2008-01-?? <shadowm2006@gmail.com>:
-    * Made #textdomain another preprocessor directive, as is handled by the game at /src/serialization/preprocessor.cpp
-      line 634 and around
-  - 2007-11-?? <shadowm2006@gmail.com>:
-    * Minor improvements?
-  - 2007-11-?? <shadowm2006@gmail.com>:
-    * Made the new #ifndef directive be recognized (implemented on Wesnoth 1.3.11 and later)
+* 0.44:
+    * 2016-06-15 <shadowm2006@gmail.com>:
+        * Fixed preprocessor directives immediately following a closing
+          quote without whitespace between being highlighted as comments.
+
+* 0.43:
+    * 2012-06-23 <shadowm2006@gmail.com>:
+        * Exempted most contexts from spellchecking, except for quoted and
+          translatable strings, comment lines, and the default context.
+    * 2012-04-14 <shadowm2006@gmail.com>:
+        * Added wmlxgettext: metadirective.
+    * 2012-02-08 <shadowm2006@gmail.com>:
+        * Use Detect2Chars instead of a trivial regular expression for
+          detecting the end of non-preprocessed (<< >>) blocks.
+
+* 0.42:
+    * 2011-11-15 <shadowm2006@gmail.com>:
+        * Added preprocessor directives: #error, #warning
+        * Added highlighting for the wmlxgettext annotation metadirective (po:)
+
+* 0.41:
+    * 2011-04-15 <shadowm2006@gmail.com>:
+        * Added preprocessor directives: #if(n)have, #if(n)ver
+        * Revalidated against language.dtd
+
+* 0.40:
+    * 2010-06-13 <devel@the-user.org>:
+        * Added lua-highlighting between << and >>.
+        * Added pango-highlighting between " and "
+        * Folding for macro-strings between paretheses
+        * Changed colors.
+        * This file is licensed under GPLv2+
+
+* 0.37:
+    * 2008-03-29 <shadowm2006@gmail.com>:
+        * WML preprocessor directive (define, if) blocks can be
+          collapsed/expanded
+        * attribute_name = "string" WML constructs (note the space surrounding
+          '=') are recognized too (designed considering the mainline about.cfg
+          structure case)
+        * Changed various context names and styles
+
+    * 2008-03-21 <shadowm2006@gmail.com>:
+        * WML nodes and multiline preprocessing macro/include blocks can be
+          collapsed/expanded
+        * WML nodes that are opened and closed in a single line are properly
+          highlighted now
+
+* 0.36:
+    * 2008-03-05 <shadowm2006@gmail.com>:
+        * Added wmlscope to list of utility control commands
+
+* 0.35:
+    * 2008-02-23 <shadowm2006@gmail.com>:
+        * Made it possible to comment/uncomment line(s) using the default
+          CTRL-D / CTRL-SHIFT-D shortcuts
+    * 2008-01-27 <shadowm2006@gmail.com>:
+        * Added the *.pbl file name pattern
+        * Made the standard alerts (i.e. TODO, HACK, FIXME,...) be highlighted
+          too
+        * Made the key comments for Wesnoth's mainline maintenance scripts be
+          highlighted (at the moment they are only used for wmllint and
+          wmlindent)
+    * 2008-01 <shadowm2006@gmail.com>:
+        * Made #textdomain another preprocessor directive, as is handled by the
+          game at /src/serialization/preprocessor.cpp line 634 and around
+    * 2007-11 <shadowm2006@gmail.com>:
+        * Minor improvements?
+    * 2007-11 <shadowm2006@gmail.com>:
+        * Made the new #ifndef directive be recognized (implemented on Wesnoth
+          1.3.11 and later)
+
 -->
 
 <language name="Wesnoth Markup Language" section="Markup" extensions="*.cfg;*.pbl;*.CFG;*.PBL" version="0.42"
