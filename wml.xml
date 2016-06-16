@@ -119,7 +119,7 @@ Version history:
 
         <RegExpr String="(_ *)?&quot;" attribute="String" context="string" />
 
-        <RegExpr String=" *&lt;&lt;" attribute="String" context="luastring" beginRegion="wml_lua" />
+        <Detect2Chars char="&lt;" char1="&lt;" attribute="String" context="luastring" beginRegion="wml_lua" />
 
         <keyword String="preprocessor_directive_statements" attribute="Preprocessor" context="preprocessor" />
         <keyword String="preprocessor_block_begin_statements" attribute="Preprocessor" context="preprocessor" beginRegion="wmlpp_block" />
@@ -164,7 +164,7 @@ Version history:
       <context attribute="Macro/Include" lineEndContext="#stay" name="macro">
         <DetectChar char="{" attribute="Macro/Include" context="macro" beginRegion="macro_block"/>
         <RegExpr String="(_ *)?&quot;" attribute="Macro String" context="macroString" />
-        <RegExpr String=" *&lt;&lt;" attribute="Macro String" context="luamacrostring" beginRegion="wml_lua" />
+        <Detect2Chars char="&lt;" char1="&lt;" attribute="Macro String" context="luamacrostring" beginRegion="wml_lua" />
         <DetectChar char="(" attribute="Macro String" context="macroString2" beginRegion="macro_paren_string" />
         <DetectChar char="}" attribute="Macro/Include" context="#pop" endRegion="macro_block" />
         <IncludeRules context="variableSubstitutionRule" />
