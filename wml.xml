@@ -131,7 +131,7 @@ Version history:
 
         <!--<DetectChar char="[" attribute="WML Node" context="section" firstNonSpace="true" />-->
         <RegExpr String="\[(?!/)" attribute="WML Node" context="section" beginRegion="wml_node" />
-        <RegExpr String="\[/" attribute="WML Node" context="section" endRegion="wml_node" />
+        <Detect2Chars char="[" char1="/" attribute="WML Node" context="section" endRegion="wml_node" />
 
         <RegExpr String="(\w|,| )+=" attribute="WML Attribute" context="value" lookAhead="true" />
 
