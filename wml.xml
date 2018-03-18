@@ -4,7 +4,7 @@
 
 Wesnoth Markup Language syntax highlighting schema
 
-Repository:        https://github.com/shikadilord/kate-wml-syntax
+Repository:        https://github.com/shikadiqueen/kate-wml-syntax
 Discussion thread: https://forums.wesnoth.org/viewtopic.php?f=21&t=13781
 
 Version history:
@@ -83,7 +83,7 @@ Version history:
 
 -->
 <language name="Wesnoth Markup Language" section="Markup" extensions="*.cfg;*.pbl;*.CFG;*.PBL" version="0.44"
-          kateversion="2.3" casesensitive="true" author="Zachary Palmer (zep01@bahj.com), modif. by Ignacio Riquelme Morelle (shadowm2006@gmail.com) and Jonathan Schmidt-Dominé (devel@the-user.org)" license="GPL">
+          kateversion="2.3" casesensitive="true" author="Zachary Palmer (zep01@bahj.com), modif. by Iris Morelle (shadowm2006@gmail.com) and Jonathan Schmidt-Dominé (devel@the-user.org)" license="GPL">
   <highlighting>
     <list name="alerts_wml_utils">
       <item> wmllint</item>
