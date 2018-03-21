@@ -98,6 +98,7 @@ Version history:
       <item>#undef</item>
       <item>#error</item>
       <item>#warning</item>
+      <item>#deprecated</item>
     </list>
     <list name="preprocessor_block_begin_statements">
       <item>#define</item>
@@ -107,10 +108,12 @@ Version history:
       <item>#ifnhave</item>
       <item>#ifver</item>
       <item>#ifnver</item>
+      <item>#arg</item>
     </list>
     <list name="preprocessor_block_end_statements">
       <item>#enddef</item>
       <item>#endif</item>
+      <item>#endarg</item>
     </list>
     <contexts>
       <!-- Main contexts -->
